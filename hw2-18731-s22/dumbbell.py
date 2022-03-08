@@ -1,7 +1,7 @@
 # CMU 18731 HW2
 # Code referenced from: git@bitbucket.org:huangty/cs144_bufferbloat.git
 # Edited by: Soo-Jin Moon, Deepti Sunder Prakash
-# Author: Hao Zhang
+
 #!/usr/bin/python
 
 from mininet.topo import Topo
@@ -58,24 +58,29 @@ args = parser.parse_args()
 
 class DumbbellTopo(Topo):
     "Dumbbell topology for Shrew experiment"
-    def build(self, n=6, bw_net=100, delay='20ms', bw_host=10, maxq=None):
+    def build(self, n=6, bw_net=100, delay='20ms', bw_host=10, maxq=100000000):
     #TODO: Add your code to create topology
-        switch1 = self.addSwitch('s1')
-        for h in range(2):
-            host = self.addHost('hl%s' % (h+1))
-            self.addLink(host,switch1,bw=bw_host,delay = delay, max_queue_size = max_q)
-        host = self.addHost('a1')
-        self.addLink(host,switch1,bw=bw_host,delay = delay, max_queue_size = max_q)
+	Host1 = self.addHost( 'hl1' )
+        Host2 = self.addHost( 'hl2' )
+        Host3 = self.addHost( 'a1' )
+        Host4 = self.addHost( 'hr1' )
+        Host5 = self.addHost( 'hr2' )
+        Host6 = self.addHost( 'a2' )
+        Switch1 = self.addSwitch('s1')
+        Switch2 = self.addSwitch('s2')
+        # Add links
+        self.addLink(Host1,Switch1,bw= bw_host,delay = delay,max_queue_size = maxq)
 
+        self.addLink(Host2,Switch1)
+        self.addLink(Host3,Switch1)
+	#self.addLink( Host1, Switch1, bw=bw_host, delay = delay, max_queue_size = maxq )
+        #self.addLink( Host2, Switch1, bw=bw_host, delay = delay, max_queue_size = maxq )
+        #self.addLink( Host3, Switch1, bw=bw_host, delay = delay, max_queue_size = maxq )
+        self.addLink( Host4, Switch2, bw=bw_host, delay = delay, max_queue_size = maxq )
+        self.addLink( Host5, Switch2, bw=bw_host, delay = delay, max_queue_size = maxq )
+        self.addLink( Host6, Switch2, bw=bw_host, delay = delay, max_queue_size = maxq )
+        self.addLink( Switch1, Switch2 )
 		
-        switch2= self.addSwitch('s2')
-        for h in range(2):
-            host = self.addHost('hr%s' % (h+1))
-            self.addLink(host,switch2,bw=bw_host,delay = delay, max_queue_size = max_q)
-        host = self.addHost('a2')
-        self.addLink(host,switch2,bw=bw_host,delay = delay, max_queue_size = max_q)
-
-        self.addLink(switch1,switch2,bw=bw_net,delay= delay, max_queue_size = max_q)
 	
 def bbnet():
     "Create network and run shrew  experiment"
@@ -87,10 +92,9 @@ def bbnet():
     net = Mininet(topo=topo, host=CPULimitedHost, link=TCLink,
                   autoPinCpus=True)
     net.start()
-    print("Dumping host connections")
     dumpNodeConnections(net.hosts)
-    print("Testing Network Connectivity")
 
+    #TODO: Add your code to test reachability of hosts
     net.pingAll()
     #TODO: Add yoour code to start long lived TCP flows 
   
