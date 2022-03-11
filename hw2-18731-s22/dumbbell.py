@@ -60,24 +60,27 @@ class DumbbellTopo(Topo):
     "Dumbbell topology for Shrew experiment"
     def build(self, n=6, bw_net=100, delay='20ms', bw_host=10, maxq=1000):
     #TODO: Add your code to create topology
-	Host1 = self.addHost( 'hl1' )
-        Host2 = self.addHost( 'hl2' )
-        Host3 = self.addHost( 'a1' )
-        Host4 = self.addHost( 'hr1' )
-        Host5 = self.addHost( 'hr2' )
-        Host6 = self.addHost( 'a2' )
-        Switch1 = self.addSwitch('s1')
-        Switch2 = self.addSwitch('s2')
-        # Add links
-        self.addLink(Host1,Switch1,bw= bw_host,delay = delay)
+	hl1 = self.addHost( 'hl1' )
+        hl2 = self.addHost( 'hl2' )
+        a1 = self.addHost( 'a1' )
+        
+        hr1 = self.addHost( 'hr1' )
+        hr2 = self.addHost( 'hr2' )
+        a2 = self.addHost( 'a2' )
 
-        self.addLink( Host1, Switch1, bw=bw_host, delay = delay)
-        self.addLink( Host2, Switch1, bw=bw_host, delay = delay)
-        self.addLink( Host3, Switch1, bw=bw_host, delay = delay)
-        self.addLink( Host4, Switch2, bw=bw_host, delay = delay)
-        self.addLink( Host5, Switch2, bw=bw_host, delay = delay)
-        self.addLink( Host6, Switch2, bw=bw_host, delay = delay)
-        self.addLink( Switch1, Switch2,bw=bw_net, delay = delay )
+        s1 = self.addSwitch('s1')
+        s2 = self.addSwitch('s2')
+
+        # Add links
+        self.addLink( hl1, s1, bw=bw_host, delay = delay, max_queue_size = maxq)
+        self.addLink( hl2, s1, bw=bw_host, delay = delay, max_queue_size = maxq)
+        self.addLink( a1, s1, bw=bw_host, delay = delay, max_queue_size = maxq)
+
+        self.addLink( hr1, s2, bw=bw_host, delay = delay, max_queue_size = maxq)
+        self.addLink( hr2, s2, bw=bw_host, delay = delay, max_queue_size = maxq)
+        self.addLink( a2, s2, bw=bw_host, delay = delay, max_queue_size = maxq)
+
+        self.addLink( s1, s2,bw=bw_net, delay = delay )
 		
 	
 def bbnet():
