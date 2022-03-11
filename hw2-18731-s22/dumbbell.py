@@ -58,9 +58,10 @@ args = parser.parse_args()
 
 class DumbbellTopo(Topo):
     "Dumbbell topology for Shrew experiment"
-    def build(self, n=6, bw_net=100, delay='20ms', bw_host=10, maxq=1000):
+    def build(self, n=6, bw_net=100, delay='20ms', bw_host=10, maxq=None):
     #TODO: Add your code to create topology
-	hl1 = self.addHost( 'hl1' )
+
+        hl1 = self.addHost( 'hl1' )
         hl2 = self.addHost( 'hl2' )
         a1 = self.addHost( 'a1' )
         
@@ -80,8 +81,7 @@ class DumbbellTopo(Topo):
         self.addLink( hr2, s2, bw=bw_host, delay = delay, max_queue_size = maxq)
         self.addLink( a2, s2, bw=bw_host, delay = delay, max_queue_size = maxq)
 
-        self.addLink( s1, s2,bw=bw_net, delay = delay )
-		
+        self.addLink( s1, s2,bw=bw_net, delay = delay )		
 	
 def bbnet():
     "Create network and run shrew  experiment"
@@ -102,7 +102,7 @@ def bbnet():
     net.iperf((hl1,hr1), port=5001) 
 
     hl2, hr2 = net.get('hl2','hr2')
-    net.iperf((hl2,hr2), port=5002) 
+    net.iperf((hl2,hr2), port=5002)   
     
     CLI(net)
     net.stop()
