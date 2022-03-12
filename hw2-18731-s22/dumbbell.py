@@ -98,12 +98,17 @@ def bbnet():
     #TODO: Add your code to test reachability of hosts
     net.pingAll()
     #TODO: Add yoour code to start long lived TCP flows 
-    hl1, hr1 = net.get('hl1','hr1')
-    net.iperf((hl1,hr1), port=5001) 
+    '''hl1, hr1 = net.get('hl1','hr1')
+    iperf((hl1,hr1), port=5001) 
 
     hl2, hr2 = net.get('hl2','hr2')
-    net.iperf((hl2,hr2), port=5002)   
-    
+    iperf((hl2,hr2), port=5002)   
+    '''
+    hl1,hl2,hr1,hr2 = net.get('hl1', 'hl2','hr1', 'hr2')
+    hl1.cmdPrint('iperf -s -p 5001 -t 20 &')
+    hl2.cmdPrint('iperf -s -p 5002 -t 20 &')
+    hr1.cmdPrint('iperf -c 10.0.0.3 -p 5001 -i 1')
+    hr2.cmdPrint('iperf -c 10.0.0.4 -p 5002 -i 1')
     CLI(net)
     net.stop()
 
