@@ -10,7 +10,7 @@ python dumbbell.py --bw-host 10 \
                 --bw-net 100 \
                 --delay 20 \
                 --n 6 \
-		--maxq 0
+		--maxq 1000
 
 echo "cleaning up..."
 killall -9 iperf ping
