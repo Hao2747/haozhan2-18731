@@ -104,11 +104,15 @@ def bbnet():
     hl2, hr2 = net.get('hl2','hr2')
     iperf((hl2,hr2), port=5002)   
     '''
-    hl1,hl2,hr1,hr2 = net.get('hl1', 'hl2','hr1', 'hr2')
-    hl1.cmdPrint('iperf -s -p 5001 -t 20 &')
-    hl2.cmdPrint('iperf -s -p 5002 -t 20 &')
+    
+    hl1,hl2,hr1,hr2,a1,a2 = net.get('hl1', 'hl2','hr1', 'hr2','a1','a2')
+    hl1.cmdPrint('iperf -s -p 5001 -t 600 &')
+    hl2.cmdPrint('iperf -s -p 5002 -t 600 &')
+    a1.cmdPrint('iperf -s -p 5003 -t 600 &')
+   
     hr1.cmdPrint('iperf -c 10.0.0.3 -p 5001 -i 1')
-    hr2.cmdPrint('iperf -c 10.0.0.4 -p 5002 -i 1')
+    hr2.cmdPrint('iperf -c 10.0.0.4 -p 5002 -i 1')   
+    a2.cmdPrint('iperf -c 10.0.0.1 -p 5003 -i 1')
     CLI(net)
     net.stop()
 
