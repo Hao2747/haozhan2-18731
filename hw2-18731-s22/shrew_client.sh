@@ -3,5 +3,5 @@
 echo running iperf-client
 
 #TODO: add your code
-iperf -c <server ip> -p 5566 -t 15
-iperf -c -u -p 5001 -t 15 -l 1000
+iperf -c 10.0.0.1 -p 5566 -t 15
+iperf -c 10.0.0.1 -u -p 5001 -t 15 -l 1000
