@@ -1,0 +1,45 @@
+2022-03-27 21:58:03,240 - 12916 - [INFO] Setting up a queue for results processing
+2022-03-27 21:58:03,268 - 12916 - [INFO] Setting up results processor
+2022-03-27 21:58:03,273 - 12918 - [INFO] Setting up File results / output processor
+2022-03-27 21:58:03,273 - 12916 - [INFO] Attempting to load simulations from ./sample/simulations/
+2022-03-27 21:58:03,274 - 12916 - [CRITICAL] No simulations could be loaded, cannot continue
+2022-03-27 22:01:36,027 - 12955 - [INFO] Setting up a queue for results processing
+2022-03-27 22:01:36,061 - 12955 - [INFO] Setting up results processor
+2022-03-27 22:01:36,065 - 12957 - [INFO] Setting up File results / output processor
+2022-03-27 22:01:36,064 - 12955 - [INFO] Attempting to load simulations from ./sample/simulations/
+2022-03-27 22:01:36,065 - 12955 - [CRITICAL] No simulations could be loaded, cannot continue
+2022-03-27 22:04:16,094 - 13098 - [INFO] Setting up a queue for results processing
+2022-03-27 22:04:16,127 - 13098 - [INFO] Setting up results processor
+2022-03-27 22:04:16,132 - 13098 - [INFO] Attempting to load simulations from .
+2022-03-27 22:04:16,133 - 13100 - [INFO] Setting up File results / output processor
+2022-03-27 22:04:16,133 - 13098 - [CRITICAL] No simulations could be loaded, cannot continue
+2022-03-27 22:09:12,303 - 13258 - [INFO] Setting up a queue for results processing
+2022-03-27 22:09:12,317 - 13258 - [INFO] Setting up results processor
+2022-03-27 22:09:12,319 - 13258 - [INFO] Attempting to load simulations from .
+2022-03-27 22:09:12,320 - 13258 - [CRITICAL] No simulations could be loaded, cannot continue
+2022-03-27 22:09:12,320 - 13260 - [INFO] Setting up File results / output processor
+2022-03-27 22:13:09,945 - 13506 - [INFO] Setting up a queue for results processing
+2022-03-27 22:13:09,963 - 13506 - [INFO] Setting up results processor
+2022-03-27 22:13:09,967 - 13506 - [INFO] Attempting to load simulations from .
+2022-03-27 22:13:09,967 - 13509 - [INFO] Setting up File results / output processor
+2022-03-27 22:13:09,967 - 13506 - [INFO] Loading simulation 1 of 1 from manifest: ./kako.yaml
+2022-03-27 22:14:22,612 - 13543 - [INFO] Setting up a queue for results processing
+2022-03-27 22:14:22,646 - 13543 - [INFO] Setting up results processor
+2022-03-27 22:14:22,652 - 13543 - [INFO] Attempting to load simulations from .
+2022-03-27 22:14:22,653 - 13543 - [INFO] Loading simulation 1 of 1 from manifest: ./kako.yaml
+2022-03-27 22:14:22,652 - 13545 - [INFO] Setting up File results / output processor
+2022-03-27 22:20:45,986 - 13934 - [INFO] Setting up a queue for results processing
+2022-03-27 22:20:46,018 - 13934 - [INFO] Setting up results processor
+2022-03-27 22:20:46,024 - 13934 - [INFO] Attempting to load simulations from .
+2022-03-27 22:20:46,024 - 13936 - [INFO] Setting up File results / output processor
+2022-03-27 22:20:46,024 - 13934 - [INFO] Loading simulation 1 of 1 from manifest: ./kako.yaml
+2022-03-27 22:44:41,932 - 15010 - [INFO] Setting up a queue for results processing
+2022-03-27 22:44:41,951 - 15010 - [INFO] Setting up results processor
+2022-03-27 22:44:41,956 - 15010 - [INFO] Attempting to load simulations from .
+2022-03-27 22:44:41,956 - 15010 - [INFO] Loading simulation 1 of 1 from manifest: ./000-LinuxTelnet.yaml
+2022-03-27 22:44:41,956 - 15012 - [INFO] Setting up File results / output processor
+2022-03-27 22:44:42,017 - 15010 - [INFO] Starting simulation: Linux Generic Telnet Simulation
+2022-03-27 22:44:42,020 - 15010 - [INFO] Monitoring enabled every 60 seconds
+2022-03-27 22:44:42,022 - 15013 - [INFO] Setting up listener on TCP/2323
+2022-03-27 22:44:57,582 - 15013 - [INFO] Received connection from 127.0.0.1:46316
+2022-03-27 22:45:43,211 - 15013 - [INFO] Negotiation and login complete, dropping to "shell"
