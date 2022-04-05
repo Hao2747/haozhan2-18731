@@ -4,13 +4,13 @@ from mininet.net import Mininet
 from mininet.node import Controller, RemoteController, Node
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
-from mininet.link import Link, Intf
+from mininet.link import Link, Intf,TCLink
  
 def aggNet():
  
     CONTROLLER_IP='127.0.0.1'
  
-    net = Mininet( topo=None,
+    net = Mininet( topo=None,link = TCLink,
                 build=False)
  
     net.addController( 'c0',
@@ -31,7 +31,8 @@ def aggNet():
     
     net.addLink( h1, s1 )
     net.addLink( h2, s1 )
-    net.addLink( h3, s2 )
+   # net.addLink( h3, s2)
+    net.addLink( h3, s2, delay = "2000ms" )
     net.addLink( h4, s3 )
     net.addLink( h5, s3 )
     net.addLink( h6, s3 )
