@@ -33,10 +33,10 @@ def main():
 
         pkt = DNSPacket[0]
 
-        print(pkt.getlayer(Ether).fields + '\n')
-        print(pkt.getlayer(IP).fields + '\n')
-        print(pkt.getlayer(UDP).fields + '\n')
-        print(pkt.getlayer(DNS).fields + '\n')
+        print(pkt.getlayer(Ether).fields )
+        print(pkt.getlayer(IP).fields )
+        print(pkt.getlayer(UDP).fields )
+        print(pkt.getlayer(DNS).fields )
 
         # h1's MAC address
         clientHwAddr = pkt.getlayer(Ether).src
@@ -128,10 +128,10 @@ def main():
             print(' \n Sending spoofed response packet ')
             sendp(spoofedEtherPkt/spoofedIPPkt/spoofedUDP_TCPPacket /
                   spoofedDNSPakcet, iface=s1iface, count=1)
-            print(spoofedEtherPkt + '\n')
-            print(spoofedIPPkt + '\n')
-            print(spoofedUDP_TCPPacket + '\n')
-            print(spoofedDNSPakcet + '\n')
+            print(spoofedEtherPkt )
+            print(spoofedIPPkt )
+            print(spoofedUDP_TCPPacket)
+            print(spoofedDNSPakcet )
 
             print(' Spoofed DNS Server: %s \n src port:%d dest port:%d ' % \
               (spoofedDNSServerIP, 53, clientSrcPort))
