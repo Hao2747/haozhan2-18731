@@ -9,7 +9,6 @@ from kako.simulation.server import telnet
 
 class Simulation(multiprocessing.Process):
     ''' Simulation for a vulnerable Telnet service. '''
-
     def __init__(self, manifest, configuration, results, *args, **kwargs):
         super(Simulation, self).__init__()
 
@@ -17,9 +16,14 @@ class Simulation(multiprocessing.Process):
         self.results = results
         self.manifest = manifest
         self.configuration = configuration
+        self.count = 0
+        print("Hello from init")
+
 
     def run(self):
         ''' Implements the main runable for the simulation. '''
+        print("Hello from RUN")
+        # print("count",count)
         self.log.info(
             'Setting up listener on TCP/%s', str(self.manifest['port'])
         )

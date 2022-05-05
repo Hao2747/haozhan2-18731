@@ -1,0 +1,63 @@
+2022-04-23 20:03:15,016 - 9003 - [INFO] Setting up a queue for results processing
+2022-04-23 20:03:15,028 - 9003 - [INFO] Setting up results processor
+2022-04-23 20:03:15,030 - 9003 - [INFO] Attempting to load simulations from .
+2022-04-23 20:03:15,030 - 9003 - [INFO] Loading simulation 1 of 1 from manifest: ./000-LinuxTelnet.yaml
+2022-04-23 20:03:15,030 - 9005 - [INFO] Setting up File results / output processor
+2022-04-23 20:03:15,049 - 9003 - [INFO] Starting simulation: Linux Generic Telnet Simulation
+2022-04-23 20:03:15,050 - 9003 - [INFO] Current Number of Attack: 1
+2022-04-23 20:03:15,050 - 9003 - [INFO] Monitoring enabled every 60 seconds
+2022-04-23 20:03:15,051 - 9006 - [INFO] Setting up listener on TCP/2323
+2022-04-23 20:03:18,031 - 9006 - [INFO] Received connection from 127.0.0.1:54568
+2022-04-23 20:03:22,320 - 9006 - [INFO] Received connection from 127.0.0.1:54570
+2022-04-23 20:07:47,037 - 9241 - [INFO] Setting up a queue for results processing
+2022-04-23 20:07:47,049 - 9241 - [INFO] Setting up results processor
+2022-04-23 20:07:47,051 - 9241 - [INFO] Attempting to load simulations from .
+2022-04-23 20:07:47,051 - 9243 - [INFO] Setting up File results / output processor
+2022-04-23 20:07:47,051 - 9241 - [INFO] Loading simulation 1 of 1 from manifest: ./000-LinuxTelnet.yaml
+2022-04-23 20:07:47,070 - 9241 - [INFO] Starting simulation: Linux Generic Telnet Simulation
+2022-04-23 20:07:47,071 - 9241 - [INFO] Current Number of Attack: 1
+2022-04-23 20:07:47,071 - 9241 - [INFO] Monitoring enabled every 60 seconds
+2022-04-23 20:08:47,099 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:09:47,124 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:10:47,186 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:11:47,189 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:12:47,249 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:13:47,311 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:14:47,372 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:15:47,420 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:16:47,482 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:17:47,543 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:18:47,604 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:19:47,637 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:20:47,698 - 9241 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:20:57,641 - 10027 - [INFO] Setting up a queue for results processing
+2022-04-23 20:20:57,652 - 10027 - [INFO] Setting up results processor
+2022-04-23 20:20:57,654 - 10027 - [INFO] Attempting to load simulations from .
+2022-04-23 20:20:57,654 - 10029 - [INFO] Setting up File results / output processor
+2022-04-23 20:20:57,654 - 10027 - [INFO] Loading simulation 1 of 1 from manifest: ./000-LinuxTelnet.yaml
+2022-04-23 20:20:57,676 - 10027 - [INFO] Starting simulation: Linux Generic Telnet Simulation
+2022-04-23 20:20:57,677 - 10027 - [INFO] Current Number of Attack: 1
+2022-04-23 20:20:57,677 - 10027 - [INFO] Monitoring enabled every 60 seconds
+2022-04-23 20:21:35,377 - 10104 - [INFO] Setting up a queue for results processing
+2022-04-23 20:21:35,388 - 10104 - [INFO] Setting up results processor
+2022-04-23 20:21:35,390 - 10104 - [INFO] Attempting to load simulations from .
+2022-04-23 20:21:35,390 - 10106 - [INFO] Setting up File results / output processor
+2022-04-23 20:21:35,390 - 10104 - [INFO] Loading simulation 1 of 1 from manifest: ./000-LinuxTelnet.yaml
+2022-04-23 20:21:35,409 - 10104 - [INFO] Starting simulation: Linux Generic Telnet Simulation
+2022-04-23 20:21:35,410 - 10104 - [INFO] Current Number of Attack: 1
+2022-04-23 20:21:35,411 - 10104 - [INFO] Monitoring enabled every 60 seconds
+2022-04-23 20:21:35,411 - 10107 - [INFO] Setting up listener on TCP/2323
+2022-04-23 20:21:46,699 - 10107 - [INFO] Received connection from 127.0.0.1:54620
+2022-04-23 20:21:52,668 - 10107 - [INFO] Received connection from 127.0.0.1:54624
+2022-04-23 20:21:59,323 - 10107 - [INFO] Received connection from 127.0.0.1:54626
+2022-04-23 20:23:34,484 - 10302 - [INFO] Setting up a queue for results processing
+2022-04-23 20:23:34,496 - 10302 - [INFO] Setting up results processor
+2022-04-23 20:23:34,498 - 10302 - [INFO] Attempting to load simulations from .
+2022-04-23 20:23:34,498 - 10302 - [INFO] Loading simulation 1 of 1 from manifest: ./000-LinuxTelnet.yaml
+2022-04-23 20:23:34,498 - 10304 - [INFO] Setting up File results / output processor
+2022-04-23 20:23:34,518 - 10302 - [INFO] Starting simulation: Linux Generic Telnet Simulation
+2022-04-23 20:23:34,519 - 10302 - [INFO] Current Number of Attack: 1
+2022-04-23 20:23:34,519 - 10302 - [INFO] Monitoring enabled every 60 seconds
+2022-04-23 20:23:34,520 - 10305 - [INFO] Setting up listener on TCP/2323
+2022-04-23 20:24:34,580 - 10302 - [ERROR] simulation Linux Generic Telnet Simulation has died, respawning
+2022-04-23 20:24:34,582 - 10372 - [INFO] Setting up listener on TCP/2323

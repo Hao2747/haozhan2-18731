@@ -72,6 +72,7 @@ class Server(socketserver.ThreadingTCPServer):
 
     def __init__(self, server_address, RequestHandlerClass, manifest,
                  configuration, results):
+        print("why")
         socketserver.ThreadingTCPServer.__init__(
             self, server_address, RequestHandlerClass
         )
